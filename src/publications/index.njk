@@ -32,19 +32,54 @@ layout: null
   <div class="masthead-sub">Selected Work & Bibliography</div>
   <hr class="masthead-rule">
 
-  <h2>Newspaper</h2>
-  <p>
-    Messenger bylines currently tracked: {{ messenger.length - 1 }}
-  </p>
+<h2>Meade County Messenger - Bylines</h2>
+<p>
+  Messenger bylines currently tracked: {{ messenger.length - 1 }}
+</p>
 
-  <h2>Books</h2>
-  <p>
-    (Add titles here.)
-  </p>
+{% for m in messengerByMonth.months %}
+<details>
+  <summary>{{ m.label }} ({{ m.count }})</summary>
+  <ul>
+    {% for it in m.items %}
+      <li>{{ it.issueDate }} — {{ it.headline }} ({{ it.pageNo }}) — {{ it.topic }}</li>
+    {% endfor %}
+  </ul>
+</details>
+{% endfor %}
+
+
+<h2>Books</h2>
+<ul>
+
+  <li>
+    <em>Tiger Gulch</em> (2018) —
+    Mystery novel.
+    Kindle & Paperback.
+    [<a href="https://amzn.to/4qDaogv" target="_blank" rel="noopener">Amazon</a>]
+  </li>
+
+  <li>
+    <em>Let's Learn About Soccer: 35 pages of Coloring, Activity and Knowledge</em> (2022) —
+    Educational coloring & activity book introducing soccer fundamentals.
+    Kindle & Paperback.
+    [<a href="https://amzn.to/4rkMDuO" target="_blank" rel="noopener">Amazon</a>]
+  </li>
+
+</ul>
+
+</p>
+
 
   <h2>Poetry</h2>
   <p>
-    (Add published poems here.)
+   <ul>
+   <li>
+  “Blue Collar Lament.” <em>Blue Collar Review</em>, Fall 2025 Edition
+  (published January 2026). ISSN 1535-136X. p. 9.
+</li>
+
+   </ul>
   </p>
 
   <h2>Past Work</h2>
@@ -55,6 +90,10 @@ layout: null
   <hr class="rule">
 
   <p><a href="/">Return to Front Page</a></p>
+ <p class="kicker">
+  Disclosure: Certain outbound links may be affiliate links.
+</p>
+
 
 </main>
 
