@@ -1,0 +1,108 @@
+:root{
+  --paper:#f5efe4;
+  --ink:#111;
+  --rule:#d7d0c5;
+  --muted:#555;
+}
+
+@font-face{
+  font-family:"FrakturMasthead";
+  src:
+    url("/assets/fonts/UnifrakturCook-Bold.woff2") format("woff2"),
+    url("/assets/fonts/UnifrakturCook-Bold.woff") format("woff");
+  font-weight:700;
+  font-style:normal;
+  font-display:swap;
+}
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;
+  font-size:18px;
+  line-height:1.5;
+}
+
+.wrap{
+  max-width:880px;
+  margin:0 auto;
+  padding:24px 18px;
+}
+
+.topbar{
+  border-bottom:1px solid var(--rule);
+  font-size:14px;
+}
+
+.kicker{
+  color:var(--muted);
+  text-transform:uppercase;
+  font-size:13px;
+  letter-spacing:.04em;
+}
+
+.masthead{
+  font-family:"FrakturMasthead", serif;
+  font-size:56px;
+  line-height:1.0;
+  letter-spacing:.04em;
+  margin:18px 0 6px;
+}
+
+.masthead-sub{
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--muted);
+}
+
+.masthead-rule{
+  border:0;
+  border-top:2px solid var(--ink);
+  margin:12px 0 18px;
+}
+
+.links{
+  list-style:none;
+  padding:0;
+}
+
+.links li{
+  margin:6px 0;
+}
+
+.rule{
+  border:0;
+  border-top:1px solid var(--rule);
+  margin:18px 0;
+}
+
+.footer{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.coming{
+  color:var(--muted);
+  text-decoration:none;
+  cursor:default;
+}
+
+.topbar-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:14px;
+}
+
+.dateline-left{
+  font-weight:600;
+}
+
+.dateline-right{
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--muted);
+}
+

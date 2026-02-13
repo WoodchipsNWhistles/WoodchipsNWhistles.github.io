@@ -1,0 +1,17 @@
+# Intake / working files
+_inbox/
+
+# macOS junk
+.DS_Store
+
+# Eleventy cache (safe to ignore)
+.eleventy.js.map
+.eleventy-cache/
+
+# Node temp (npx sometimes leaves traces)
+node_modules/
+
+# Editor temp files
+*.swp
+*.swo
+*~
