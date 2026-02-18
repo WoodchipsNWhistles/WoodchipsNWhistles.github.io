@@ -1,28 +1,17 @@
 [
-  [
-    "issueDate",
-    "headline",
-    "pageNo",
-    "topic"
-  ],
-  [
-    "2026-02-12",
-    "Lady Wave Wrestling Team claims first trophy!",
-    "A1",
-    "MCHS Wrestling"
-  ],
-  [
-    "2026-02-12",
-    "Lady Tigers snap Lady Wave win-streak",
-    "B4",
-    "LW Basketball"
-  ],
-  [
-    "2026-02-12",
-    "Shouse takes career lead in double-doubles as Waves beat Panthers",
-    "B4",
-    "GW Basketball"
-  ],
+  ["issueDate", "headline", "pageNo", "topic"],
+  ["2026-02-19", "Green Wave invade Hornets Nest in Victory", "B3", "GW Basketball"],
+  ["2026-02-19", "Lady Wave roll on Senior Night", "B3", "LW Basketball"],
+  ["2026-02-19", "Lady Wave demolish Hornets Nest", "B3", "LW Basketball"],
+  ["2026-02-19", "Lady Wave rout Lady Bruins", "B3", "LW Basketball"],
+  ["2026-02-19", "Lady Wave roll over Lady Dragons in overtime win", "B4", "LW Basketball"],
+  ["2026-02-19", "Storm hits Lady Waves at home", "B4", "LW Basketball"],
+  ["2026-02-19", "Waves hit first of the century mark in points since 98 on Senior Night", "B4", "GW Basketball"],
+
+  ["2026-02-12", "Lady Wave Wrestling Team claims first trophy!", "A1", "MCHS Wrestling"],
+  ["2026-02-12", "Lady Tigers snap Lady Wave win-streak", "B4", "LW Basketball"],
+  ["2026-02-12", "Shouse takes career lead in double-doubles as Waves beat Panthers", "B4", "GW Basketball"]
+,
   [
     "2026-02-05",
     "MCHS swim boys secure dynasty Barr sets record",
