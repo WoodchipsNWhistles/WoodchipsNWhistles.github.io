@@ -36,9 +36,10 @@ body{
 }
 
 .kicker{
-  color:var(--muted);
+  font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;
+  color:bold;
   text-transform:uppercase;
-  font-size:13px;
+  font-size:20px;
   letter-spacing:.04em;
 }
 
