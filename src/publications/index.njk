@@ -1,53 +1,14 @@
 ---
 title: Publications
-layout: null
+layout: base.njk
 ---
 
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ title }} — Dave Mitchner</title>
-  <link rel="stylesheet" href="/assets/site.css">
-</head>
-
-<body>
-
-<div class="topbar">
-  <div class="wrap topbar-inner">
-    <div class="dateline-left">
-      Publications
-    </div>
-
-    <div class="dateline-right">
-      Dave Mitchner
-    </div>
-  </div>
-</div>
 
 <main class="wrap">
 
   <div class="masthead">Publications</div>
   <div class="masthead-sub">Selected Work & Bibliography</div>
   <hr class="masthead-rule">
-
-<h2>Meade County Messenger - Bylines</h2>
-<p>
-  Messenger bylines currently tracked: {{ messenger.length - 1 }}
-</p>
-
-{% for m in messengerByMonth.months %}
-<details>
-  <summary>{{ m.label }} ({{ m.count }})</summary>
-  <ul>
-    {% for it in m.items %}
-      <li>{{ it.issueDate }} — {{ it.headline }} ({{ it.pageNo }}) — {{ it.topic }}</li>
-    {% endfor %}
-  </ul>
-</details>
-{% endfor %}
-
 
 <h2>Books</h2>
 <ul>
@@ -83,6 +44,22 @@ layout: null
    </ul>
   </p>
 
+
+<h2>Meade County Messenger Bylines</h2>
+
+{% for m in messengerByMonth.months %}
+<details>
+  <summary>{{ m.label }} ({{ m.count }})</summary>
+  <ul>
+    {% for it in m.items %}
+      <li>{{ it.issueDate }} — {{ it.headline }} ({{ it.pageNo }}) — {{ it.topic }}</li>
+    {% endfor %}
+  </ul>
+</details>
+{% endfor %}
+
+
+
   <h2>Past Work</h2>
   <p>
     Sports news website — details forthcoming.
@@ -91,12 +68,7 @@ layout: null
   <hr class="rule">
 
   <p><a href="/">Return to Front Page</a></p>
- <p class="kicker">
+ <p>
   Disclosure: Certain outbound links may be affiliate links.
 </p>
 
-
-</main>
-
-</body>
-</html>

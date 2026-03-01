@@ -146,3 +146,25 @@ body{
   .infobox{ float:none; width:auto; margin:0 0 12px 0; }
 }
 
+details summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.4rem 0;
+  user-select: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::before {
+  content: '+';
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+details[open] summary::before {
+  content: '−';
+}
+
