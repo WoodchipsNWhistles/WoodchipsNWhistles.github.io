@@ -1,0 +1,40 @@
+---
+layout: base.njk
+title: "Yet Another War In My Lifetime"
+date: 2026-02-28
+tags:
+    - poems
+    - politics
+    - war
+    - Fibonacci
+originallyPublished: "davemitchner.com + Facebook"
+permalink: "/poems/fibonacci-war/"
+---
+
+
+<p class="kicker">A Fibonacci poem regarding yet another war in my lifetime</p>
+<p class="byline">Dave Mitchner</p>
+<p class="meta">Written February 28, 2026 • Originally published: {{ originallyPublished }}</p>
+
+
+<br>War.
+<br>Why?
+<br>Again
+<br>Smedley said -
+<br>"It is a racket!"
+<br>The rich must profit
+<br>But avoid
+<br>Self risk
+<br>For
+<br>Cash.
+<p>
+
+{% set cats = tags | reject("equalto","poems") | list %}
+{% if cats.length %}
+<div class="catbox">
+  <span class="catlabel">Categories:</span>
+  {% for t in cats %}
+    <a class="catlink" href="/category/{{ t | slug }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}
+  {% endfor %}
+</div>
+{% endif %}

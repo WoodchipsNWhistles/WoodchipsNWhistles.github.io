@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="dateline-left">
+      Messenger Bylines • Since Friday, June 12, 2015:
+      {{ messenger.length - 1 }}
+    </div>
+    <div class="dateline-right">
+      Last updated {{ page.date | date("EEE, MMM dd, yyyy") }}
+    </div>
+  </div>
+</div>
+  <main class="wrap">
+    {{ content | safe }}
+  </main>
+</body>
+</html>
