@@ -3,37 +3,98 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {# 
+    Page title comes from front matter.
+    Example:
+    ---
+    title: Poems
+    ---
+  #}
   <title>{{ title }}</title>
+
   <link rel="stylesheet" href="/assets/site.css">
 </head>
+
 <body>
-<div class="topbar">
-  <div class="wrap topbar-inner">
-    <div class="dateline-left">
-      Messenger Bylines • Since Friday, June 12, 2015:
-      {{ messenger.length - 1 }}
-    </div>
-    <div class="dateline-right">
-      Last updated {{ page.date | date("EEE, MMM dd, yyyy") }}
+
+  {# ============================================================
+     TOP DATELINE BAR
+     Shows byline count + last updated date
+     ============================================================ #}
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="dateline-left">
+        Messenger Bylines • Since Friday, June 12, 2015:
+        {{ messenger.length - 1 }}
+      </div>
+
+      <div class="dateline-right">
+        Last updated {{ page.date | date("EEE, MMM dd, yyyy") }}
+      </div>
     </div>
   </div>
-</div>
 
-<div class="wrap layout">
-  <aside class="sidebar">
-    <nav>
-      <ul class="nav-list">
-        <li><a href="https://davemitchner.com/">Home</a></li>
-        <li><a href="https://davemitchner.com/poems/">Poems</a></li>
-        <li><a href="https://davemitchner.com/publications/">Publications</a></li>
-      </ul>
-    </nav>
-  </aside>
 
-  <main class="content">
-    {{ content | safe }}
-  </main>
-</div>
+  {# ============================================================
+     MAIN LAYOUT GRID
+     Two-column: Sidebar (nav) + Main content
+     Controlled via .layout CSS grid
+     ============================================================ #}
+  <div class="wrap layout">
+
+    {# ============================================================
+       SIDEBAR NAVIGATION
+       - Navigation items defined as an array
+       - aria-current automatically applied to active page
+       - Uses relative URLs (better for static hosting)
+       ============================================================ #}
+    <aside class="sidebar">
+      <div class="sidebar-title">Navigate</div>
+
+      <nav aria-label="Site">
+        <ul class="nav-list">
+
+          {# Define site navigation in one place #}
+          {% set nav = [
+            { label: "Home", url: "/" },
+            { label: "Poems", url: "/poems/" },
+            { label: "Publications", url: "/publications/" }
+          ] %}
+
+          {# Normalize current page URL (remove leading/trailing slashes) #}
+          {% set here = page.url | trim("/") %}
+
+          {# Loop through nav items #}
+          {% for item in nav %}
+
+            {# Normalize nav URL the same way #}
+            {% set there = item.url | trim("/") %}
+
+            <li>
+              <a href="{{ item.url }}"
+                 {% if here == there %}
+                   aria-current="page"
+                 {% endif %}>
+                {{ item.label }}
+              </a>
+            </li>
+
+          {% endfor %}
+        </ul>
+      </nav>
+    </aside>
+
+
+    {# ============================================================
+       MAIN CONTENT AREA
+       Eleventy injects page content here
+       ============================================================ #}
+    <main class="content">
+      {{ content | safe }}
+    </main>
+
+  </div>
 
 </body>
 </html>

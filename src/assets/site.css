@@ -1,10 +1,33 @@
+/* ============================================================
+   davemitchner.com — Site Styles (masthead / broadsheet vibe)
+   Goal: print-like, restrained, no default browser "GeoCities"
+   ============================================================ */
+
+
+/* -----------------------------
+   Theme tokens (colors, etc.)
+   ----------------------------- */
 :root{
   --paper:#f5efe4;
   --ink:#111;
   --rule:#d7d0c5;
   --muted:#555;
+
+  /* Layout + rhythm */
+  --wrap: 880px;
+  --pad-y: 24px;
+  --pad-x: 18px;
+
+  /* Type scale */
+  --base: 18px;
+  --small: 14px;
+  --tiny: 13px;
 }
 
+
+/* -----------------------------
+   Masthead font (Fraktur)
+   ----------------------------- */
 @font-face{
   font-family:"FrakturMasthead";
   src:
@@ -15,32 +38,101 @@
   font-display:swap;
 }
 
+
+/* -----------------------------
+   Base / reset-ish rules
+   ----------------------------- */
+*{ box-sizing:border-box; }
+
+html{ -webkit-text-size-adjust: 100%; }
+
 body{
   margin:0;
   background:var(--paper);
   color:var(--ink);
   font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;
-  font-size:18px;
-  line-height:1.5;
+  font-size:var(--base);
+  line-height:1.55;
 }
 
+/* Constrain reading width consistently */
 .wrap{
-  max-width:880px;
+  max-width:var(--wrap);
   margin:0 auto;
-  padding:24px 18px;
+  padding:var(--pad-y) var(--pad-x);
 }
 
+/* No surprise spacing on headings/paragraphs */
+h1,h2,h3,p,ul,ol{ margin: 0 0 0.9rem; }
+ul,ol{ padding-left: 1.25rem; }
+
+/* Images behave */
+img{ max-width:100%; height:auto; }
+
+
+/* -----------------------------
+   Link styling (kill browser defaults)
+   ----------------------------- */
+/* Default: “ink on paper”, subtle underline */
+a{
+  color:var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+/* No purple visited links */
+a:visited{ color:var(--ink); }
+
+/* Hover = underline gets a touch heavier */
+a:hover{
+  text-decoration-thickness: 2px;
+}
+
+/* Keyboard accessibility */
+a:focus-visible{
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+
+/* -----------------------------
+   Top dateline bar
+   ----------------------------- */
 .topbar{
   border-bottom:1px solid var(--rule);
-  font-size:14px;
+  font-size:var(--small);
 }
 
+.topbar-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap: 1rem;
+  flex-wrap:wrap;
+  font-size:var(--small);
+}
+
+.dateline-left{ font-weight:600; }
+.dateline-right{
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--muted);
+  white-space:nowrap;
+}
+
+
+/* -----------------------------
+   Masthead blocks
+   ----------------------------- */
 .kicker{
-  font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;
-  color:bold;
+  /* NOTE: "color:bold" was invalid; use font-weight */
+  font-family:inherit;
+  font-weight:700;
   text-transform:uppercase;
   font-size:20px;
-  letter-spacing:.04em;
+  letter-spacing:.06em;
+  color:var(--ink);
 }
 
 .masthead{
@@ -52,9 +144,9 @@ body{
 }
 
 .masthead-sub{
-  font-size:14px;
+  font-size:var(--small);
   text-transform:uppercase;
-  letter-spacing:.05em;
+  letter-spacing:.08em;
   color:var(--muted);
 }
 
@@ -64,51 +156,89 @@ body{
   margin:12px 0 18px;
 }
 
-.links{
-  list-style:none;
-  padding:0;
-}
-
-.links li{
-  margin:6px 0;
-}
-
 .rule{
   border:0;
   border-top:1px solid var(--rule);
   margin:18px 0;
 }
 
-.footer{
-  font-size:13px;
-  color:var(--muted);
+
+/* -----------------------------
+   Two-column layout (sidebar + content)
+   ----------------------------- */
+.layout{
+  display:grid;
+  grid-template-columns: 170px 1fr;
+  gap: 2rem;
+  margin-top: 1.25rem;
+  align-items:start;
 }
 
-.coming{
-  color:var(--muted);
-  text-decoration:none;
-  cursor:default;
+/* Sidebar should feel like a masthead index rail */
+.sidebar{
+  border-right:1px solid var(--rule);
+  padding-right:1.25rem;
 }
 
-.topbar-inner{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-size:14px;
+.sidebar-title{
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--muted);
+  margin: 0 0 0.75rem;
 }
 
-.dateline-left{
-  font-weight:600;
+/* Nav list: no bullets, no browser spacing */
+.nav-list{
+  list-style:none;
+  padding:0;
+  margin:0;
 }
 
-.dateline-right{
+/* Give it that “index” cadence */
+.nav-list li{
+  margin:0 0 0.9rem;
+}
+
+/* Nav links: blocky, masthead-ish, no purple/blue ever */
+.nav-list a,
+.nav-list a:visited{
+  display:block;
+  color:var(--ink);
+  text-decoration:none;          /* nav reads like a label, not a web link */
+  font-weight:700;
   text-transform:uppercase;
-  letter-spacing:.05em;
-  color:var(--muted);
+  letter-spacing:.12em;
+  font-size: 12px;
+  line-height: 1.25;
 }
 
+/* Hover/focus = underline + subtle rule feel */
+.nav-list a:hover{
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25em;
+}
+
+.nav-list a:focus-visible{
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* Optional: show current page if you add aria-current="page" */
+.nav-list a[aria-current="page"]{
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.25em;
+}
+
+
+/* -----------------------------
+   Content bits
+   ----------------------------- */
 .byline{ margin:0; font-weight:600; }
-.meta{ margin:6px 0 12px; color:var(--muted); font-size:14px; }
+.meta{ margin:6px 0 12px; color:var(--muted); font-size:var(--small); }
+
 .poem{
   font-family:inherit;
   font-size:18px;
@@ -120,13 +250,14 @@ body{
   border-radius:6px;
 }
 
+/* Infobox (float right on desktop, stacks on mobile) */
 .infobox{
   float:right;
   width:260px;
   margin:0 0 12px 12px;
   border:1px solid var(--rule);
   background:rgba(255,255,255,.55);
-  font-size:14px;
+  font-size:var(--small);
 }
 .infobox-title{
   padding:8px 10px;
@@ -142,77 +273,66 @@ body{
   border-bottom:1px solid rgba(0,0,0,.05);
 }
 .infobox-row span:first-child{ color:var(--muted); }
-@media (max-width:700px){
-  .infobox{ float:none; width:auto; margin:0 0 12px 0; }
+
+
+/* -----------------------------
+   <details> accordion styling
+   ----------------------------- */
+details summary{
+  list-style:none;
+  cursor:pointer;
+  padding:0.4rem 0;
+  user-select:none;
+}
+details summary::-webkit-details-marker{ display:none; }
+details summary::before{
+  content:'+';
+  display:inline-block;
+  margin-right:0.5rem;
+  font-weight:700;
+}
+details[open] summary::before{ content:'−'; }
+
+
+/* -----------------------------
+   Footer
+   ----------------------------- */
+.footer{
+  font-size:var(--tiny);
+  color:var(--muted);
 }
 
-details summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 0.4rem 0;
-  user-select: none;
+.coming{
+  color:var(--muted);
+  text-decoration:none;
+  cursor:default;
 }
 
-details summary::-webkit-details-marker {
-  display: none;
-}
 
-details summary::before {
-  content: '+';
-  display: inline-block;
-  margin-right: 0.5rem;
-  font-weight: bold;
-}
-
-details[open] summary::before {
-  content: '−';
-}
-
-.layout {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 2rem;
-  margin-top: 1.5rem;
-}
-
-.sidebar {
-  border-right: 1px solid var(--rule);
-  padding-right: 1rem;
-  font-family: var(--masthead);
-}
-
-.nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-list li {
-  margin-bottom: .75rem;
-}
-
-.nav-list a {
-  text-decoration: none;
-  color: var(--ink);
-  font-weight: 700;
-  letter-spacing: .02em;
-}
-
-.nav-list a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive: stack on small screens */
-@media (max-width: 800px) {
-  .layout {
+/* -----------------------------
+   Responsive rules
+   ----------------------------- */
+@media (max-width: 800px){
+  .layout{
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
-  .sidebar {
-    border-right: none;
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
+  .sidebar{
+    border-right:none;
+    border-bottom:1px solid var(--rule);
+    padding-right:0;
+    padding-bottom:1rem;
+    margin-bottom:0.5rem;
   }
+
+  .dateline-right{ white-space: normal; }
 }
 
+@media (max-width: 700px){
+  .infobox{
+    float:none;
+    width:auto;
+    margin:0 0 12px 0;
+  }
+}
