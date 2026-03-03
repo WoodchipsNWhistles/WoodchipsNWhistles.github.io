@@ -50,42 +50,53 @@
        - aria-current automatically applied to active page
        - Uses relative URLs (better for static hosting)
        ============================================================ #}
-    <aside class="sidebar">
-      <div class="sidebar-title">Navigate</div>
+   <aside class="sidebar">
+  <div class="sidebar-title">Navigate</div>
 
-      <nav aria-label="Site">
-        <ul class="nav-list">
+  <nav aria-label="Site">
+    <ul class="nav-list">
 
-          {# Define site navigation in one place #}
-          {% set nav = [
-            { label: "Home", url: "/" },
-            { label: "Poems", url: "/poems/" },
-            { label: "Publications", url: "/publications/" }
-          ] %}
+      {# Define site navigation in one place #}
+      {% set nav = [
+        { label: "Home", url: "/" },
+        { label: "Poems", url: "/poems/" },
+        { label: "Publications", url: "/publications/" },
+        { 
+          label: "MCHS Almanac",
+          url: "https://mchsalmanac.davemitchner.com/",
+          target: "_blank",
+          rel: "noopener"
+        }
+      ] %}
 
-          {# Normalize current page URL (remove leading/trailing slashes) #}
-          {% set here = page.url | trim("/") %}
+      {# Normalize current page URL (remove leading/trailing slashes) #}
+      {% set here = page.url | trim("/") %}
 
-          {# Loop through nav items #}
-          {% for item in nav %}
+      {# Loop through nav items #}
+      {% for item in nav %}
 
-            {# Normalize nav URL the same way #}
-            {% set there = item.url | trim("/") %}
+        {# Normalize nav URL the same way #}
+        {% set there = item.url | trim("/") %}
 
-            <li>
-              <a href="{{ item.url }}"
-                 {% if here == there %}
-                   aria-current="page"
-                 {% endif %}>
-                {{ item.label }}
-              </a>
-            </li>
+        <li>
+          <a href="{{ item.url }}"
+             {% if here == there %}
+               aria-current="page"
+             {% endif %}
+             {% if item.target %}
+               target="{{ item.target }}"
+             {% endif %}
+             {% if item.rel %}
+               rel="{{ item.rel }}"
+             {% endif %}>
+            {{ item.label }}
+          </a>
+        </li>
 
-          {% endfor %}
-        </ul>
-      </nav>
-    </aside>
-
+      {% endfor %}
+    </ul>
+  </nav>
+</aside>
 
     {# ============================================================
        MAIN CONTENT AREA
