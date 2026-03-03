@@ -3,6 +3,7 @@ layout: base.njk
 title: "Poems"
 permalink: "/poems/"
 ---
+<p class="poem-title">Poems I've Written</p>
 
 <ul class="links">
   {% set poems = collections.poems | sort(attribute="data.title") %}
