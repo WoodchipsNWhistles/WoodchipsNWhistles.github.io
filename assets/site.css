@@ -94,7 +94,15 @@ img{ max-width:100%; height:auto; }
   border: none;
   padding: 0;
 }
+.two-col {
+  column-gap: 2rem;
+}
 
+@media (min-width: 700px) {
+  .two-col {
+    columns: 2;
+  }
+}
 
 /* -----------------------------
    Link styling (kill browser defaults)
