@@ -5,9 +5,11 @@ permalink: "/poems/"
 ---
 
 <ul class="links">
-{% for p in collections.poems | reverse %}
-  <li>
-    <a href="{{ p.url }}">{{ p.data.title }}</a>
-  </li>
-{% endfor %}
+  {% set poems = collections.poems | sort(attribute="data.title") %}
+
+  {% for poem in poems %}
+    <li>
+      <a href="{{ poem.url }}">{{ poem.data.title }}</a>
+    </li>
+  {% endfor %}
 </ul>

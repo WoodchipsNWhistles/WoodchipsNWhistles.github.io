@@ -69,6 +69,32 @@ ul,ol{ padding-left: 1.25rem; }
 /* Images behave */
 img{ max-width:100%; height:auto; }
 
+/* -----------------------------
+   Poetry Settings
+   -----------------------------*/
+:root{
+  --colonial-head: "Libre Caslon Display", "Caslon", "Garamond", serif;
+}
+
+.poem-title{
+  font-family: var(--colonial-head);
+  font-weight: 400;
+  letter-spacing: .01em;
+  line-height: 1.05;
+  font-size: 2.5rem;
+}
+
+.poem{
+  font-family: var(--colonial-head);
+  white-space: pre-line;   /* preserves line breaks */
+  line-height: 1.3;
+  font-size: 1.5rem;
+  margin: 1.5rem 0;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
 
 /* -----------------------------
    Link styling (kill browser defaults)
@@ -239,16 +265,6 @@ a:focus-visible{
 .byline{ margin:0; font-weight:600; }
 .meta{ margin:6px 0 12px; color:var(--muted); font-size:var(--small); }
 
-.poem{
-  font-family:inherit;
-  font-size:18px;
-  line-height:1.6;
-  white-space:pre-wrap;
-  background:rgba(255,255,255,.45);
-  border:1px solid var(--rule);
-  padding:12px 14px;
-  border-radius:6px;
-}
 
 /* Infobox (float right on desktop, stacks on mobile) */
 .infobox{

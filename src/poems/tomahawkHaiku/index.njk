@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: "Tomahawk haiku"
-date: 2026-03-02
+date: 2026-03-03
 tags:
     - poems
     - politics
@@ -9,9 +9,19 @@ tags:
 originallyPublished: "davemitchner.com + Facebook"
 permalink: "/poems/tomahawkHaiku/"
 ---
-
-<pre>
-Tomahawk missiles
+<p class="poem-title">Tomahawk Haiku</p>
+<p class="kicker">Dave Mitchner</p>
+<p class="meta">Written March 3, 2026 • Originally published: {{ originallyPublished }}</p>
+<div class="poem">Tomahawk missiles
 Earns Raytheon two point five
 For each bloody one
-</pre>
+</div>
+{% set cats = tags | reject("equalto","poems") | list %}
+{% if cats.length %}
+<div class="catbox">
+  <span class="catlabel">Categories:</span>
+  {% for t in cats %}
+    <a class="catlink" href="/category/{{ t | slug }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}
+  {% endfor %}
+</div>
+{% endif %}

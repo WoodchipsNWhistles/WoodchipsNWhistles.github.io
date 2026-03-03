@@ -10,12 +10,12 @@ originallyPublished: "davemitchner.com + Facebook"
 permalink: "/poems/orangeBane/"
 ---
 
-<p class="kicker">The Orange Man's Bane</p>
+<p class="poem-title">The Orange Man's Bane</p>
 <p class="kicker">Dave Mitchner</p>
 <p class="meta">Written March 2, 2026 • Originally published: {{ originallyPublished }}</p>
 
 
-<pre>
+<div class="poem">
 No money for the hungry poor,
 In this abundant land;
 The coffers swell behind locked doors,
@@ -40,4 +40,13 @@ Grow richer as they please
 “No dollar can we spend!”
 But loosed a war with careless hand—
 His bane unto the end.
-</pre>
+</div>
+{% set cats = tags | reject("equalto","poems") | list %}
+{% if cats.length %}
+<div class="catbox">
+  <span class="catlabel">Categories:</span>
+  {% for t in cats %}
+    <a class="catlink" href="/category/{{ t | slug }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}
+  {% endfor %}
+</div>
+{% endif %}
