@@ -1,0 +1,30 @@
+---
+layout: base.njk
+title: "Haiku 3: On Writing Haiku"
+date: 2026-03-06
+tags:
+    - poems
+    - meta
+    - writing
+originallyPublished: "davemitchner.com + Facebook"
+permalink: "/poems/writingHaiku/"
+---
+<p class="poem-title">Haiku writing Haiku</p>
+<p class="kicker">Dave Mitchner</p>
+<p class="meta">Written March 6, 2026 • Originally published: {{ originallyPublished }}</p>
+
+<div class="poem">Poetry is hard
+I write a new one daily
+Haiku gets it done.
+</div>
+
+
+{% set cats = tags | reject("equalto","poems") | list %}
+{% if cats.length %}
+<div class="catbox">
+  <span class="catlabel">Categories:</span>
+  {% for t in cats %}
+    <a class="catlink" href="/category/{{ t | slug }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}
+  {% endfor %}
+</div>
+{% endif %}
