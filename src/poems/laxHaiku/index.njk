@@ -1,0 +1,30 @@
+---
+layout: base.njk
+title: "Refereeing Haiku"
+date: 2026-03-05
+tags:
+    - poems
+    - refereeing
+    - sports
+originallyPublished: "davemitchner.com + Facebook"
+permalink: "/poems/laxHaiku/"
+---
+<p class="poem-title">Haiku regarding refereeing girl's lacrosse</p>
+<p class="kicker">Dave Mitchner</p>
+<p class="meta">Written March 5, 2026 • Originally published: {{ originallyPublished }}</p>
+
+<div class="poem">Referee girls' lax
+Whistles blown, fouls are given
+Get home and crash out.
+</div>
+
+
+{% set cats = tags | reject("equalto","poems") | list %}
+{% if cats.length %}
+<div class="catbox">
+  <span class="catlabel">Categories:</span>
+  {% for t in cats %}
+    <a class="catlink" href="/category/{{ t | slug }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}
+  {% endfor %}
+</div>
+{% endif %}
