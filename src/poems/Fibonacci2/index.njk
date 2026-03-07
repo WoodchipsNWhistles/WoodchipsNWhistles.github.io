@@ -1,0 +1,38 @@
+---
+layout: base.njk
+title: "Fibonacci 2: A week into Iran"
+date: 2026-03-07
+tags:
+    - poems
+    - politics
+    - war
+originallyPublished: "davemitchner.com + Facebook"
+permalink: "/poems/fibonacci2/"
+---
+
+<p class="poem-title">A Fibonacci Poem </p>
+<p class="kicker">Dave Mitchner</p>
+<p class="meta">Written March 2, 2026 • Originally published: {{ originallyPublished }}</p>
+
+
+<div class="poem">
+To-
+Day 
+Is a 
+Week of war
+To hide his weakness
+And to deflect from 
+Epstein file
+To hide
+his
+name.
+<div>
+{% set cats = tags | reject("equalto","poems") | list %}
+{% if cats.length %}
+<div class="catbox">
+  <span class="catlabel">Categories:</span>
+  {% for t in cats %}
+    <a class="catlink" href="/category/{{ t | slug }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}
+  {% endfor %}
+</div>
+{% endif %}
