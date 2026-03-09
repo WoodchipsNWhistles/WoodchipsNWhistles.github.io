@@ -1,0 +1,29 @@
+---
+layout: base.njk
+title: "Haiku 4: On StubHub"
+date: 2026-03-05
+tags:
+    - poems
+    - internet venders
+originallyPublished: "davemitchner.com + Facebook"
+permalink: "/poems/stubHaiku/"
+---
+<p class="poem-title">Haiku regarding StubHug</p>
+<p class="kicker">Dave Mitchner</p>
+<p class="meta">Written March 8, 2026 • Originally published: {{ originallyPublished }}</p>
+
+<div class="poem">Thought I had show tix
+But the internet told lies
+Stubhub sucks so much.
+</div>
+
+
+{% set cats = tags | reject("equalto","poems") | list %}
+{% if cats.length %}
+<div class="catbox">
+  <span class="catlabel">Categories:</span>
+  {% for t in cats %}
+    <a class="catlink" href="/category/{{ t | slug }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}
+  {% endfor %}
+</div>
+{% endif %}
