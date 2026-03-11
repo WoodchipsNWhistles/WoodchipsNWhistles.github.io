@@ -1,0 +1,31 @@
+---
+layout: base.njk
+title: "Haiku 6: On Kentucky Basketball"
+date: 2026-03-05
+tags:
+    - poems
+    - refereeing
+    - sports
+originallyPublished: "davemitchner.com + Facebook"
+permalink: "/poems/UKhoopsHaiku/"
+---
+<p class="poem-title">Haiku regarding University of Kentucky Basketball</p>
+<p class="kicker">Dave Mitchner</p>
+<p class="meta">Written March 11, 2026 • Originally published: {{ originallyPublished }}</p>
+
+<div class="poem">
+SEC tourney
+Kentucky plays on Wednesday
+The first time ever
+</div>
+
+
+{% set cats = tags | reject("equalto","poems") | list %}
+{% if cats.length %}
+<div class="catbox">
+  <span class="catlabel">Categories:</span>
+  {% for t in cats %}
+    <a class="catlink" href="/category/{{ t | slug }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}
+  {% endfor %}
+</div>
+{% endif %}

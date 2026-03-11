@@ -1,0 +1,34 @@
+---
+layout: base.njk
+title: "Senryū 1: On Gambling on Current Events"
+date: 2026-03-09
+tags:
+    - poems
+    - war
+    - gambling
+originallyPublished: "davemitchner.com + Facebook"
+permalink: "/poems/warSenryu/"
+---
+<p class="poem-title">Senryū 1: On Gambling on Current Events</p>
+<p class="kicker">Dave Mitchner</p>
+<p class="meta">Written March 9, 2026 • Originally published: {{ originallyPublished }}</p>
+
+<div class="poem">Oh sure you can bet
+On the war starting today
+An insider smiles.
+
+I presume that is
+But a brand new account banks 
+A clean half-a-mil.
+</div>
+
+
+{% set cats = tags | reject("equalto","poems") | list %}
+{% if cats.length %}
+<div class="catbox">
+  <span class="catlabel">Categories:</span>
+  {% for t in cats %}
+    <a class="catlink" href="/category/{{ t | slug }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}
+  {% endfor %}
+</div>
+{% endif %}
