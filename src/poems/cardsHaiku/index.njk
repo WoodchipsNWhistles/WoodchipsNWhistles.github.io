@@ -1,0 +1,29 @@
+---
+layout: base.njk
+title: "Haiku 7: On Inventorying Cigarette Cards"
+date: 2026-03-12
+tags:
+    - poems
+    - collecting
+originallyPublished: "davemitchner.com + Facebook"
+permalink: "/poems/cardsHaiku/"
+---
+<p class="poem-title">Haiku regarding the inventorying of a cigarette card collection</p>
+<p class="kicker">Dave Mitchner</p>
+<p class="meta">Written March 12, 2026 • Originally published: {{ originallyPublished }}</p>
+
+<div class="poem">Cigarette card count
+Nineteen twenty-five so far
+From one eighteen sets
+</div>
+
+
+{% set cats = tags | reject("equalto","poems") | list %}
+{% if cats.length %}
+<div class="catbox">
+  <span class="catlabel">Categories:</span>
+  {% for t in cats %}
+    <a class="catlink" href="/category/{{ t | slug }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}
+  {% endfor %}
+</div>
+{% endif %}
