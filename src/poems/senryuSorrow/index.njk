@@ -1,0 +1,31 @@
+---
+layout: base.njk
+title: "Senryū 3: Sorrow"
+date: 2026-03-23
+tags:
+    - poems
+    - sports
+    - refereeing
+originallyPublished: "davemitchner.com + Facebook"
+permalink: "/poems/senryuSorrow/"
+---
+<p class="poem-title">Senryū 3: Referees are people too</p>
+<p class="kicker">Dave Mitchner</p>
+<p class="meta">Written March 23, 2026 • Originally published: {{ originallyPublished }}</p>
+
+<div class="poem">
+Sadness some days rules
+We tell the god of sorrow
+"Not today, fucker."
+</div>
+
+
+{% set cats = tags | reject("equalto","poems") | list %}
+{% if cats.length %}
+<div class="catbox">
+  <span class="catlabel">Categories:</span>
+  {% for t in cats %}
+    <a class="catlink" href="/category/{{ t | slug }}/">{{ t }}</a>{% if not loop.last %} | {% endif %}
+  {% endfor %}
+</div>
+{% endif %}
